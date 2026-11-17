@@ -1,0 +1,6 @@
+{
+  "name": "Trabajo Grupal Grado 10",
+  "description": "Exposición cinematográfica interactiva sobre la organización del tiempo para Grado 10, con escenario 3D, estética retro CRT años 80, cinta 35mm en blanco y negro y estudio generativo con Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

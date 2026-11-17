@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cinzel", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-cinema-black: #070709;
+  --color-cinema-charcoal: #0f1014;
+  --color-cinema-frame: #16171d;
+  --color-silver-cream: #eae4d7;
+  --color-velvet-crimson: #a61c2b;
+  --color-crt-amber: #e5a93b;
+  --color-crt-phosphor: #4ade80;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #070709;
+    color: #eae4d7;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Vintage 35mm film grain & CRT scanline textures (pure CSS, zero external images) */
+.crt-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.38) 3px,
+    rgba(0, 0, 0, 0.38) 4px
+  );
+}
+
+.crt-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(7, 7, 9, 0) 48%,
+    rgba(0, 0, 0, 0.72) 88%,
+    rgba(0, 0, 0, 0.94) 100%
+  );
+}
+
+.film-grain-overlay {
+  background-image: radial-gradient(rgba(234, 228, 215, 0.08) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+.film-sprocket-row {
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 8px,
+    #070709 8px,
+    #070709 20px,
+    transparent 20px,
+    transparent 30px
+  );
+}
+
+@keyframes crtFlicker {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  12% { opacity: 0.72; transform: scaleY(1.015) skewX(0.4deg); }
+  24% { opacity: 0.96; transform: scaleY(0.99); }
+  36% { opacity: 0.32; transform: scaleY(1.03) skewX(-0.8deg); }
+  48% { opacity: 0.92; transform: scaleY(1); }
+  64% { opacity: 0.18; transform: scaleY(0.06); }
+  76% { opacity: 0.98; transform: scaleY(1.02); }
+  88% { opacity: 0.65; transform: scaleY(0.995); }
+}
+
+.animate-crt-flicker {
+  animation: crtFlicker 1.15s steps(2, end) infinite;
+}
+
+@keyframes filmMarqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes filmMarqueeRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-film-marquee-left {
+  animation: filmMarqueeLeft 44s linear infinite;
+  will-change: transform;
+}
+
+.animate-film-marquee-right {
+  animation: filmMarqueeRight 48s linear infinite;
+  will-change: transform;
+}
+
+.film-marquee-wrap:hover .animate-film-marquee-left,
+.film-marquee-wrap:hover .animate-film-marquee-right {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-crt-flicker,
+  .animate-film-marquee-left,
+  .animate-film-marquee-right {
+    animation: none !important;
+  }
+}
+
+/* Custom scrollbar for dark theater aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2c35;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e5a93b;
+}
