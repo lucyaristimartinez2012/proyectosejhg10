@@ -14,20 +14,30 @@ export default function ClosingSequence({
 }: ClosingSequenceProps) {
   if (outroProgress <= 0.01) return null;
 
-  const isFlicker = outroProgress < 0.14;
-  const isSponsor = outroProgress >= 0.14 && outroProgress < 0.38;
-  const is404Outro = outroProgress >= 0.38 && outroProgress < 0.58;
-  const isCurtainClose = outroProgress >= 0.58 && outroProgress < 0.9;
+  const isFlicker = outroProgress < 0.12;
+  const isCredits = outroProgress >= 0.12 && outroProgress < 0.32;
+  const isSponsor = outroProgress >= 0.32 && outroProgress < 0.48;
+  const is404Outro = outroProgress >= 0.48 && outroProgress < 0.66;
+  const isCurtainClose = outroProgress >= 0.66 && outroProgress < 0.9;
   const isBlackout = outroProgress >= 0.9;
 
   let overlayBgOpacity = 1;
-  if (outroProgress >= 0.56 && outroProgress < 0.64) {
-    overlayBgOpacity = 1 - (outroProgress - 0.56) / 0.08;
-  } else if (outroProgress >= 0.64 && outroProgress < 0.88) {
+  if (outroProgress >= 0.62 && outroProgress < 0.7) {
+    overlayBgOpacity = 1 - (outroProgress - 0.62) / 0.08;
+  } else if (outroProgress >= 0.7 && outroProgress < 0.88) {
     overlayBgOpacity = 0;
   } else if (outroProgress >= 0.88) {
     overlayBgOpacity = Math.min(1, (outroProgress - 0.88) / 0.1);
   }
+
+  const teamCredits = [
+    { name: "Sofia Romero", role: "Cohesionadora" },
+    { name: "Anastasia Muñoz", role: "Control de calidad" },
+    { name: "Galilea Rojas", role: "Detalles técnicos y escritora" },
+    { name: "Luciana Aristizábal", role: "Editora audiovisual y escritora" },
+    { name: "Britany Chávez", role: "Escritora" },
+    { name: "Sara Toala", role: "Directora creativa" },
+  ];
 
   return (
     <section
@@ -39,7 +49,7 @@ export default function ClosingSequence({
         style={{ opacity: overlayBgOpacity }}
       />
 
-      {(isFlicker || isSponsor || is404Outro) && (
+      {(isFlicker || isCredits || isSponsor || is404Outro) && (
         <>
           <div className="absolute inset-0 crt-scanlines opacity-75 pointer-events-none" />
           <div className="absolute inset-0 crt-vignette pointer-events-none" />
@@ -57,6 +67,29 @@ export default function ClosingSequence({
             {texts.closingFlickerSubtitle}
           </p>
           <div className="h-[1px] w-2/3 mx-auto bg-[#4ADE80]/70 mt-5" />
+        </div>
+      )}
+
+      {isCredits && (
+        <div className="relative z-10 max-w-2xl w-full mx-6 text-center space-y-6">
+          <p className="font-mono text-xs tracking-[0.28em] text-[#E5A93B]">
+            {texts.closingSponsorKicker}
+          </p>
+          <div className="space-y-3 bg-[#0F1014]/90 border border-white/15 p-6 max-h-[60vh] overflow-y-auto">
+            {teamCredits.map((member, idx) => (
+              <div key={idx} className="flex flex-col sm:flex-row items-center justify-between gap-1 border-b border-white/10 pb-2.5 last:border-b-0">
+                <span className="font-semibold text-base text-[#EAE4D7]" style={{ fontFamily: "var(--font-display)" }}>
+                  {member.name}
+                </span>
+                <span className="font-mono text-xs text-[#E5A93B]">
+                  {member.role}
+                </span>
+              </div>
+            ))}
+          </div>
+          <p className="text-base sm:text-lg italic font-semibold text-[#EAE4D7] pt-2" style={{ fontFamily: "var(--font-display)" }}>
+            ¡Gracias por todo Chicas!, ¡las quiero mucho!
+          </p>
         </div>
       )}
 
