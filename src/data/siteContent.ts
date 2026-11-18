@@ -60,44 +60,44 @@ export interface EditablePresentationData {
 }
 
 export const DEFAULT_SITE_TEXTS: SiteTexts = {
-  brandTitle: "Trabajo Grupal · Grado 10",
-  brandSubtitle: "Organización del Tiempo",
+  brandTitle: "Trabajo grupal Salud Emocional G10",
+  brandSubtitle: "Por: El mejor equipo del mundo.",
   introScrollPrompt: "Desliza hacia abajo para acercarte al monitor o pulsa Auto-Cine",
 
   intro404HeaderLeft: "TERMINAL CRT · CANAL 03",
   intro404HeaderRight: "SYNC 60HZ",
-  intro404Command: "C:\\GRADO10\\EXPOSICION> CARGANDO RELOJ DEL SISTEMA...",
+  intro404Command: "C:\\SALUD_EMOCIONAL\\G10> CARGANDO CASOS PRÁCTICOS...",
   intro404Code: "ERROR 404",
   intro404Title: "SEÑAL DE TIEMPO NO ENCONTRADA",
   intro404Body:
-    "El reloj interno ha colapsado por exceso de tareas pendientes, distracciones digitales y fechas límite de último minuto.",
+    "El sistema ha detectado tareas pendientes y desorden; es momento de estructurar nuestros hábitos para recuperar la calma.",
   intro404Hint: "Desliza hacia abajo para restablecer la señal...",
   intro404Button: "Reiniciar señal",
   introFlickerTitle: "404 // SYNC...",
   introFlickerSubtitle: "ESTABILIZANDO CINTA DE 35MM",
 
-  mainTitleKicker: "ARCHIVO CINEMATOGRÁFICO · ROLLO 35MM · AÑO LECTIVO",
-  mainTitleHeadline: "Trabajo Grupal · Grado 10",
+  mainTitleKicker: "SALUD EMOCIONAL · GRADO 10",
+  mainTitleHeadline: "Trabajo grupal Salud Emocional G10",
   mainTitleSubtitle:
-    "El Arte de Organizar el Tiempo: cinco preguntas esenciales en blanco y negro",
-  mainTitleMeta: "5 Capítulos Expositivos · Cinta de Naturaleza B&N · Sin Puntaje",
-  mainTitleCta: "Entrar a la Cinta Cinematográfica",
+    "Por: El mejor equipo del mundo.",
+  mainTitleMeta: "Trabajo Grupal",
+  mainTitleCta: "Entrar a la Presentación",
 
-  expositionKicker: "EXPOSICIÓN GUIADA · ORGANIZACIÓN DEL TIEMPO",
-  expositionHeading: "Cinco Preguntas para el Aula",
+  expositionKicker: "EXPOSICIÓN GUIADA · SALUD EMOCIONAL G10",
+  expositionHeading: "Tres Casos Prácticos de Organización",
   expositionHint:
-    "Desliza hacia abajo para recorrer cada capítulo · Las cintas permanecen activas",
-  labelKeyPoints: "PUNTOS CLAVE DE LA EXPOSICIÓN",
-  labelClassPrompt: "PREGUNTA ABIERTA PARA EL SALÓN",
+    "Desliza hacia abajo para recorrer cada caso · Las cintas permanecen activas",
+  labelKeyPoints: "PASOS DE LA ACCIÓN",
+  labelClassPrompt: "PREGUNTA PARA EL SALÓN",
   labelVisualMetaphor: "METÁFORA VISUAL",
-  expositionEndKicker: "FIN DE LAS PREGUNTAS",
+  expositionEndKicker: "FIN DE LOS CASOS",
   expositionEndText:
     "Continúa deslizando hacia abajo para el parpadeo final y el cierre del telón",
   expositionEndCta: "Ir al cierre de la función",
 
   closingFlickerTitle: "FIN DEL ROLLO // SYNC...",
   closingFlickerSubtitle: "CIERRE DE TRANSMISIÓN",
-  closingSponsorKicker: "CRÉDITOS DE PRODUCCIÓN · GRADO 10",
+  closingSponsorKicker: "CRÉDITOS DE PRODUCCIÓN · SALUD EMOCIONAL G10",
   closingSponsorQuote:
     "Esta presentación fue patrocinada por el café y la amistad...",
   closingSponsorHint: "Continúa deslizando para cerrar la señal",
@@ -111,7 +111,7 @@ export const DEFAULT_SITE_TEXTS: SiteTexts = {
   closingReplayText: "Volver al inicio",
 };
 
-const STORAGE_KEY = "grado10_cinema_content_v1";
+const STORAGE_KEY = "salud_emocional_g10_content_v1";
 
 export function getDefaultPresentationData(): EditablePresentationData {
   return {

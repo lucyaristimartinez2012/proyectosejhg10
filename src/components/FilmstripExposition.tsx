@@ -120,7 +120,7 @@ export default function FilmstripExposition({
                   onClick={() => onSelectChapter(0)}
                   className="text-[#E5A93B] hover:text-[#EAE4D7] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                 >
-                  Preguntas
+                  Casos
                 </button>
                 <button
                   type="button"
@@ -159,9 +159,6 @@ export default function FilmstripExposition({
       <main className="relative z-10 max-w-7xl mx-auto px-6 pt-44 pb-44 space-y-24">
         <div className="border-b border-white/10 pb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-xs text-[#E5A93B] tracking-widest">
-              {texts.expositionKicker}
-            </p>
             <h2
               className="mt-2 text-2xl sm:text-3xl font-semibold text-[#EAE4D7]"
               style={{ fontFamily: "var(--font-display)" }}
@@ -200,7 +197,7 @@ export default function FilmstripExposition({
                   <div className="space-y-4">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono tabular-nums">
                       <span className={isCurrent ? "text-[#E5A93B]" : "text-[#EAE4D7]/75"}>
-                        CAPÍTULO {chapter.roman} · PREGUNTA {chapter.number} DE {totalStr}
+                        CASO {chapter.number} DE {totalStr}
                       </span>
                       <span aria-hidden="true">·</span>
                       <span className="text-[#EAE4D7]/60">{chapter.kicker}</span>
@@ -212,10 +209,6 @@ export default function FilmstripExposition({
                     >
                       {chapter.question}
                     </h3>
-
-                    <p className="text-base md:text-lg text-[#EAE4D7]/85 leading-relaxed max-w-[68ch]">
-                      {chapter.coreThesis}
-                    </p>
                   </div>
 
                   {/* Key Points */}
@@ -249,34 +242,15 @@ export default function FilmstripExposition({
                   </div>
                 </div>
 
-                {/* Right Column */}
-                <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
-                  <figure className="border border-white/15 bg-[#0F1014] overflow-hidden">
-                    <div className="relative aspect-[4/3] bg-[#070709]">
-                      <img
-                        src={chapter.imageUrl}
-                        alt={chapter.imageCaption}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover grayscale contrast-125"
-                      />
-                    </div>
-                    <figcaption className="p-4 border-t border-white/10 space-y-1.5">
-                      <p className="font-mono text-[11px] text-[#E5A93B] tabular-nums">
-                        {chapter.frameCode} · {texts.labelVisualMetaphor}
-                      </p>
-                      <p className="text-sm text-[#EAE4D7]/80 leading-relaxed">
-                        {chapter.imageCaption}
-                      </p>
-                    </figcaption>
-                  </figure>
-
-                  <div className="border border-white/15 bg-[#0F1014] p-5">
-                    <p className="font-mono text-xs text-[#E5A93B] mb-2">
-                      {texts.labelClassPrompt}
-                    </p>
-                    <p className="text-sm md:text-base italic text-[#EAE4D7] leading-relaxed">
-                      “{chapter.classPrompt}”
-                    </p>
+                {/* Right Column (Image Only, No Metadata) */}
+                <div className="lg:col-span-5 flex flex-col justify-center">
+                  <div className="border border-white/15 bg-[#0F1014] overflow-hidden aspect-[4/3]">
+                    <img
+                      src={chapter.imageUrl}
+                      alt="Ilustración del caso"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover grayscale contrast-125"
+                    />
                   </div>
                 </div>
               </div>
